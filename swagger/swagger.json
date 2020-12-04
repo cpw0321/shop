@@ -1,0 +1,4230 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "shop API",
+        "description": "swagger documents for your API",
+        "version": "1.0.0",
+        "contact": {
+            "email": "shop"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/address/delete": {
+            "post": {
+                "tags": [
+                    "shop/controllersAddressController"
+                ],
+                "summary": "删除地址",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.AddressDeleteBody",
+                        "description": "要删除的地址id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AddressDeleteBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersAddressController"
+                ],
+                "summary": "获取地址详情",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "token",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.AddressListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/save": {
+            "post": {
+                "tags": [
+                    "shop/controllersAddressController"
+                ],
+                "summary": "保存地址",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.AddressSaveBody",
+                        "description": "地址内容",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AddressSaveBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/aftersale/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersAfterSaleController"
+                ],
+                "summary": "获取售后详情",
+                "description": "获取售后详情",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "orderId",
+                        "description": "订单状态",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.AftersaleRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/aftersale/submit": {
+            "post": {
+                "tags": [
+                    "shop/controllersAfterSaleController"
+                ],
+                "summary": "提交订单",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.AftersaleBody",
+                        "description": "售后内容",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AftersaleBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/loginbyweixin": {
+            "post": {
+                "tags": [
+                    "shop/controllersAuthController"
+                ],
+                "summary": "微信登录",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request.AuthLoginBody",
+                        "description": "用户信息",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AuthLoginBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.AuthUserRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/add": {
+            "post": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "添加到购物车",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CartAddBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CartAddBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"数量\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/checked": {
+            "post": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "选择或取消选择商品",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CartCheckedBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CartCheckedBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.IndexCartRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/checkout": {
+            "get": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "下单前信息确认",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "cartId",
+                        "description": "cartId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "addressId",
+                        "description": "addressId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "couponId",
+                        "description": "couponId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "userCouponId",
+                        "description": "userCouponId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CheckoutRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/delete": {
+            "post": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "删除购物车信息",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CartDeleteBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CartDeleteBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.IndexCartRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/fastadd": {
+            "post": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "立即购买",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "request.CartAddBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CartAddBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"id\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/goodscount": {
+            "get": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "获取用户购物车商品数量",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"数量\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/index": {
+            "get": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "获取购物车的数据",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.IndexCartRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/update": {
+            "post": {
+                "tags": [
+                    "shop/controllersCartController"
+                ],
+                "summary": "更新购物车信息",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CartUpdateBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CartUpdateBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/catalog/current": {
+            "get": {
+                "tags": [
+                    "shop/controllersCatalogController"
+                ],
+                "summary": "获取分类目录当前分类数据",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "分类id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CatalogCurrentRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/catalog/index": {
+            "get": {
+                "tags": [
+                    "shop/controllersCatalogController"
+                ],
+                "summary": "获取分类目录",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CatelogIndexRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/collect/addordelete": {
+            "post": {
+                "tags": [
+                    "shop/controllersCollectController"
+                ],
+                "summary": "添加或取消收藏",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CollectBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CollectBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/collect/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersCollectController"
+                ],
+                "summary": "收藏夹显示列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "收藏类型id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CollectListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/comment/count": {
+            "get": {
+                "tags": [
+                    "shop/controllersBaseController"
+                ],
+                "summary": "发表评论",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "valueId",
+                        "description": "valueId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "type",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CommentCountRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/comment/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersBaseController"
+                ],
+                "summary": "获取评论列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "valueId",
+                        "description": "valueId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "type",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "showType",
+                        "description": "类型",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CommentCountRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/comment/post": {
+            "post": {
+                "tags": [
+                    "shop/controllersCommentController"
+                ],
+                "summary": "发表评论",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CommentBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CommentBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/coupon/exchange": {
+            "post": {
+                "tags": [
+                    "shop/controllersCouponUserController"
+                ],
+                "summary": "优惠券兑换",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CouponExchangeBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CouponExchangeBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/coupon/mylist": {
+            "get": {
+                "tags": [
+                    "shop/controllersCouponUserController"
+                ],
+                "summary": "我的优惠券列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "优惠劵状态",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.CouponUserListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/coupon/receive": {
+            "post": {
+                "tags": [
+                    "shop/controllersCouponUserController"
+                ],
+                "summary": "优惠券领取",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.CouponReceiveBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CouponReceiveBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/coupon/selectlist": {
+            "get": {
+                "tags": [
+                    "shop/controllersCouponUserController"
+                ],
+                "summary": "当前订单可用优惠券列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/response.CouponUserRtnJSON"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/express/query": {
+            "get": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "物流信息查询",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "orderId",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.ExpressRtnInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback/submit": {
+            "post": {
+                "tags": [
+                    "shop/controllersFeedbackController"
+                ],
+                "summary": "反馈",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.FeedbackBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.FeedbackBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/footprint/delete": {
+            "post": {
+                "tags": [
+                    "shop/controllersFootprintController"
+                ],
+                "summary": "删除足迹",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.FootprintBody",
+                        "description": "请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.FootprintBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/footprint/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersFootprintController"
+                ],
+                "summary": "足迹列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页数大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.FootprintListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/goods/detail": {
+            "get": {
+                "tags": [
+                    "shop/controllersGoodsController"
+                ],
+                "summary": "获得商品分类数据",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "分类id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "分页",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.GoodsCategoryRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/goods/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersGoodsController"
+                ],
+                "summary": "获得商品分类数据",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "isNew",
+                        "description": "是否新品，true或者false",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "in": "query",
+                        "name": "isHot",
+                        "description": "是否热卖商品，true或者false",
+                        "required": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "in": "query",
+                        "name": "keyword",
+                        "description": "关键字，如果设置则查询是否匹配关键字",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "brandId",
+                        "description": "品牌商ID，如果设置则查询品牌商所属商品",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "categoryId",
+                        "description": "商品分类ID，如果设置则查询分类所属商品",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "分页",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort",
+                        "description": "排序字段",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "升序降序",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.GoodsListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/home/index": {
+            "get": {
+                "tags": [
+                    "shop/controllersHomeController"
+                ],
+                "summary": "首页数据",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.HomeRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/issue/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersIssueController"
+                ],
+                "summary": "获取问题列表",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.IssueListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/cancel": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "取消订单",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderCancelBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderCancelBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/comment": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "评价订单商品信息",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderCommentBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderCommentBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/confirm": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "确认收货",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderConfirmBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderConfirmBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/delete": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "删除订单",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderDeleteBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderDeleteBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/detail": {
+            "get": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "订单详情",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "orderId",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.OrderDetailRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/goods": {
+            "get": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "代评价商品信息",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "orderId",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "header",
+                        "name": "goodsId",
+                        "description": "商品id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"代评价商品信息\"",
+                        "schema": {
+                            "$ref": "#/definitions/base.ShopOrderGoods"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "订单列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "showType",
+                        "description": "showType",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort",
+                        "description": "排序字段",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "排序顺序",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.OrderListRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/prepay": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "订单付款",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderPrepayBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderPrepayBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.UnifiedOrderRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/refund": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "订单退款",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderRefundBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderRefundBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/submit": {
+            "post": {
+                "tags": [
+                    "shop/controllersOrderController"
+                ],
+                "summary": "提交订单",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request.OrderSubmitBody",
+                        "description": "订单请求体",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.OrderSubmitBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.OrderSubmitRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "/search/result": {
+            "get": {
+                "tags": [
+                    "shop/controllersSearchController"
+                ],
+                "summary": "搜索结果",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "categoryId",
+                        "description": "categoryId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "description": "name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort",
+                        "description": "排序字段",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "排序顺序",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "页数",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.SearchResultRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/home/about": {
+            "get": {
+                "tags": [
+                    "shop/controllersHomeController"
+                ],
+                "summary": "关于我们",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.HomeAboutRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/region/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersRegionController"
+                ],
+                "summary": "区域列表",
+                "responses": {
+                    "200": {
+                        "description": "\"区域列表\"",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/base.ShopRegion"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "wx/search/clearhistory": {
+            "get": {
+                "tags": [
+                    "shop/controllersSearchController"
+                ],
+                "summary": "搜索历史清理",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/search/helper": {
+            "get": {
+                "tags": [
+                    "shop/controllersSearchController"
+                ],
+                "summary": "搜索帮助",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "keyword",
+                        "description": "关键字",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"字符串数组\"",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/search/index": {
+            "get": {
+                "tags": [
+                    "shop/controllersSearchController"
+                ],
+                "summary": "搜索关键字",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.SearchIndexRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/storage/upload": {
+            "post": {
+                "tags": [
+                    "shop/controllersStorageController"
+                ],
+                "summary": "上传文件",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "file",
+                        "description": "file",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.UploadRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/topic/detail": {
+            "get": {
+                "tags": [
+                    "shop/controllersTopicController"
+                ],
+                "summary": "获取专题详情",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.TopicDetailRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/topic/list": {
+            "get": {
+                "tags": [
+                    "shop/controllersTopicController"
+                ],
+                "summary": "获取主题列表",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "page",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "limit",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.TopicRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/topic/related": {
+            "get": {
+                "tags": [
+                    "shop/controllersTopicController"
+                ],
+                "summary": "相关专题",
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.TopicRelatedRtnJSON"
+                        }
+                    }
+                }
+            }
+        },
+        "wx/user/index": {
+            "get": {
+                "tags": [
+                    "shop/controllersUserController"
+                ],
+                "summary": "个人中心订单状态数量",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\"\"",
+                        "schema": {
+                            "$ref": "#/definitions/response.UserIndexRtnJSON"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "32576.0xc00072def0.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "base.ShopAddress": {
+            "title": "ShopAddress",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "addressDetail": {
+                    "type": "string"
+                },
+                "areaCode": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "county": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isDefault": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "base.ShopKeyword": {
+            "title": "ShopKeyword",
+            "type": "object",
+            "properties": {
+                "IsDefault": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isHot": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "keyword": {
+                    "type": "string"
+                },
+                "sortOrder": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.ShopOrderGoods": {
+            "title": "ShopOrderGoods",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "comment": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsName": {
+                    "type": "string"
+                },
+                "goodsSn": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "specifications": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                }
+            }
+        },
+        "base.ShopRegion": {
+            "title": "ShopRegion",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "base.ShopSearchHistory": {
+            "title": "ShopSearchHistory",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "keyword": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "base.ShopTopic": {
+            "title": "ShopTopic",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goods": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "readCount": {
+                    "type": "string"
+                },
+                "sortOrder": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                }
+            }
+        },
+        "controllers.ResponseData": {
+            "title": "ResponseData",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/32576.0xc00072def0.false"
+                },
+                "errmsg": {
+                    "type": "string"
+                },
+                "errno": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.AddressDeleteBody": {
+            "title": "AddressDeleteBody",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.AddressSaveBody": {
+            "title": "AddressSaveBody",
+            "type": "object",
+            "properties": {
+                "addressDetail": {
+                    "type": "string"
+                },
+                "areaCode": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "county": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isDefault": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "tel": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.AftersaleBody": {
+            "title": "AftersaleBody",
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "orderid": {
+                    "type": "string"
+                },
+                "pictures": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "typeDesc": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.AuthLoginBody": {
+            "title": "AuthLoginBody",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "userInfo": {
+                    "$ref": "#/definitions/request.WXUserBody"
+                }
+            }
+        },
+        "request.CartAddBody": {
+            "title": "CartAddBody",
+            "type": "object",
+            "properties": {
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.CartCheckedBody": {
+            "title": "CartCheckedBody",
+            "type": "object",
+            "properties": {
+                "isChecked": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "productIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            }
+        },
+        "request.CartDeleteBody": {
+            "title": "CartDeleteBody",
+            "type": "object",
+            "properties": {
+                "productIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            }
+        },
+        "request.CartUpdateBody": {
+            "title": "CartUpdateBody",
+            "type": "object",
+            "properties": {
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.CollectBody": {
+            "title": "CollectBody",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "valueId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.CommentBody": {
+            "title": "CommentBody",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "hasPicture": {
+                    "type": "boolean"
+                },
+                "picUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "star": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "valueId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.CouponExchangeBody": {
+            "title": "CouponExchangeBody",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.CouponReceiveBody": {
+            "title": "CouponReceiveBody",
+            "type": "object",
+            "properties": {
+                "couponId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.FeedbackBody": {
+            "title": "FeedbackBody",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "feedType": {
+                    "type": "string"
+                },
+                "hasPicture": {
+                    "type": "boolean"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "picUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "request.FootprintBody": {
+            "title": "FootprintBody",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderCancelBody": {
+            "title": "OrderCancelBody",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderCommentBody": {
+            "title": "OrderCommentBody",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "hasPicture": {
+                    "type": "boolean"
+                },
+                "orderGoodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "star": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderConfirmBody": {
+            "title": "OrderConfirmBody",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderDeleteBody": {
+            "title": "OrderDeleteBody",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderPrepayBody": {
+            "title": "OrderPrepayBody",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderRefundBody": {
+            "title": "OrderRefundBody",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.OrderSubmitBody": {
+            "title": "OrderSubmitBody",
+            "type": "object",
+            "properties": {
+                "addressId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "cartId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "couponId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "userCouponId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "request.WXUserBody": {
+            "title": "WXUserBody",
+            "type": "object",
+            "properties": {
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "nickName": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.AboutRtnJSON": {
+            "title": "AboutRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "context": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.AddressListRtnJSON": {
+            "title": "AddressListRtnJSON",
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ShopAddress"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.AftersaleRespon": {
+            "title": "AftersaleRespon",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "aftersaleSn": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "handleTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "orderid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "pictures": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "userid": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.AftersaleRtn": {
+            "title": "AftersaleRtn",
+            "type": "object",
+            "properties": {
+                "aftersale": {
+                    "$ref": "#/definitions/response.AftersaleRespon"
+                },
+                "goodsList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.OrderGoods"
+                    }
+                }
+            }
+        },
+        "response.AftersaleRtnJSON": {
+            "title": "AftersaleRtnJSON",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.AftersaleRtn"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.AuthUserRtnJSON": {
+            "title": "AuthUserRtnJSON",
+            "type": "object",
+            "properties": {
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "nickName": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.BannerRtnJSON": {
+            "title": "BannerRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.BrandRespon": {
+            "title": "BrandRespon",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "floorPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "sortOrder": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.Cart": {
+            "title": "Cart",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "checked": {
+                    "type": "boolean"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsName": {
+                    "type": "string"
+                },
+                "goodsSn": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "specifications": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.CartTotal": {
+            "title": "CartTotal",
+            "type": "object",
+            "properties": {
+                "checkedGoodsAmount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "checkedGoodsCount": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsAmount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "goodsCount": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.CatalogCurrentRtnJSON": {
+            "title": "CatalogCurrentRtnJSON",
+            "type": "object",
+            "properties": {
+                "currentCategory": {
+                    "$ref": "#/definitions/response.CategoryRtnJSON"
+                },
+                "currentSubCategory": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                }
+            }
+        },
+        "response.CategoryRtnJSON": {
+            "title": "CategoryRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "keywords": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sortOrder": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.CatelogIndexRtnJSON": {
+            "title": "CatelogIndexRtnJSON",
+            "type": "object",
+            "properties": {
+                "categoryList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                },
+                "currentCategory": {
+                    "$ref": "#/definitions/response.CategoryRtnJSON"
+                },
+                "currentSubCategory": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                }
+            }
+        },
+        "response.CheckoutRtnJSON": {
+            "title": "CheckoutRtnJSON",
+            "type": "object"
+        },
+        "response.CollectListRtnJSON": {
+            "title": "CollectListRtnJSON",
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CollectRespon"
+                    }
+                }
+            }
+        },
+        "response.CollectRespon": {
+            "title": "CollectRespon",
+            "type": "object",
+            "properties": {
+                "brief": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "retailPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "valueId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.CommentCountRtnJSON": {
+            "title": "CommentCountRtnJSON",
+            "type": "object",
+            "properties": {
+                "allCount": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "hasPicCount": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.CommentListRespon": {
+            "title": "CommentListRespon",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "avatar": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "picList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "response.CouponRtnJSON": {
+            "title": "CouponRtnJSON",
+            "type": "object",
+            "properties": {
+                "Status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "addTime": {
+                    "type": "string"
+                },
+                "days": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "discount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "goodsType": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsValue": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "min": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "timeType": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.CouponUserListRtnJSON": {
+            "title": "CouponUserListRtnJSON",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CouponUserRtnJSON"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.CouponUserRtnJSON": {
+            "title": "CouponUserRtnJSON",
+            "type": "object",
+            "properties": {
+                "available": {
+                    "type": "boolean"
+                },
+                "cid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "discount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "min": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.ExpressRtnInfo": {
+            "title": "ExpressRtnInfo",
+            "type": "object",
+            "properties": {
+                "isFinish": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logisticCode": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string"
+                },
+                "shipperCode": {
+                    "type": "string"
+                },
+                "shipperName": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "traces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.Traces"
+                    }
+                }
+            }
+        },
+        "response.FootprintGoods": {
+            "title": "FootprintGoods",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "brief": {
+                    "type": "string"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "retailPrice": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "response.FootprintListRtnJSON": {
+            "title": "FootprintListRtnJSON",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.FootprintGoods"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.GoodsAttributeRtnJSON": {
+            "title": "GoodsAttributeRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "attribute": {
+                    "type": "string"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.GoodsCategoryRtnJSON": {
+            "title": "GoodsCategoryRtnJSON",
+            "type": "object",
+            "properties": {
+                "brotherCategory": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                },
+                "currentCategory": {
+                    "$ref": "#/definitions/response.CategoryRtnJSON"
+                },
+                "parentCategory": {
+                    "$ref": "#/definitions/response.CategoryRtnJSON"
+                }
+            }
+        },
+        "response.GoodsComment": {
+            "title": "GoodsComment",
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CommentListRespon"
+                    }
+                }
+            }
+        },
+        "response.GoodsDetailRtnJSON": {
+            "title": "GoodsDetailRtnJSON",
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsAttributeRtnJSON"
+                    }
+                },
+                "brand": {
+                    "$ref": "#/definitions/response.BrandRespon"
+                },
+                "comment": {
+                    "$ref": "#/definitions/response.GoodsComment"
+                },
+                "info": {
+                    "$ref": "#/definitions/response.GoodsRtnJSON"
+                },
+                "issue": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.IssueRtnJSON"
+                    }
+                },
+                "productList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsProductRtnJSON"
+                    }
+                },
+                "share": {
+                    "type": "boolean"
+                },
+                "shareImage": {
+                    "type": "string"
+                },
+                "specificationList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.SpecificationItem"
+                    }
+                },
+                "userHasCollect": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.GoodsListRtnJSON": {
+            "title": "GoodsListRtnJSON",
+            "type": "object",
+            "properties": {
+                "filterCategoryList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsRtnJSON"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.GoodsProductRtnJSON": {
+            "title": "GoodsProductRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "specifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.GoodsRtnJSON": {
+            "title": "GoodsRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "brandId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "brief": {
+                    "type": "string"
+                },
+                "categoryId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "counterPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "gallery": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "goodsSn": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "keywords": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "retailPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "shareUrl": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.GoodsSpecificationRtnJSON": {
+            "title": "GoodsSpecificationRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "specification": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.HomeAboutRtnJSON": {
+            "title": "HomeAboutRtnJSON",
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.AboutRtnJSON"
+                    }
+                }
+            }
+        },
+        "response.HomeRtnJSON": {
+            "title": "HomeRtnJSON",
+            "type": "object",
+            "properties": {
+                "banner": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.BannerRtnJSON"
+                    }
+                },
+                "couponList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CouponRtnJSON"
+                    }
+                },
+                "hotGoodsList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsRtnJSON"
+                    }
+                },
+                "newGoodsList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsRtnJSON"
+                    }
+                },
+                "topicList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.TopicJSON"
+                    }
+                }
+            }
+        },
+        "response.IndexCartRtnJSON": {
+            "title": "IndexCartRtnJSON",
+            "type": "object",
+            "properties": {
+                "cartList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.Cart"
+                    }
+                },
+                "cartTotal": {
+                    "$ref": "#/definitions/response.CartTotal"
+                }
+            }
+        },
+        "response.IssueListRtnJSON": {
+            "title": "IssueListRtnJSON",
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.IssueRtnJSON"
+                    }
+                }
+            }
+        },
+        "response.IssueRtnJSON": {
+            "title": "IssueRtnJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "answer": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "question": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.OrderDetailRtnJSON": {
+            "title": "OrderDetailRtnJSON",
+            "type": "object",
+            "properties": {
+                "expressInfo": {
+                    "$ref": "#/definitions/response.ExpressRtnInfo"
+                },
+                "orderGoods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ShopOrderGoods"
+                    }
+                },
+                "orderInfo": {
+                    "$ref": "#/definitions/response.OrderInfo"
+                }
+            }
+        },
+        "response.OrderGoods": {
+            "title": "OrderGoods",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsName": {
+                    "type": "string"
+                },
+                "goodsSn": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picURL": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "specifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "response.OrderHandleOption": {
+            "title": "OrderHandleOption",
+            "type": "object",
+            "properties": {
+                "aftersale": {
+                    "type": "boolean"
+                },
+                "cancel": {
+                    "type": "boolean"
+                },
+                "comment": {
+                    "type": "boolean"
+                },
+                "confirm": {
+                    "type": "boolean"
+                },
+                "delete": {
+                    "type": "boolean"
+                },
+                "pay": {
+                    "type": "boolean"
+                },
+                "rebuy": {
+                    "type": "boolean"
+                },
+                "refund": {
+                    "type": "boolean"
+                },
+                "ship": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "response.OrderInfo": {
+            "title": "OrderInfo",
+            "type": "object",
+            "properties": {
+                "actualPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "addTime": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "aftersaleStatus": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "comments": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "confirmTime": {
+                    "type": "string"
+                },
+                "consignee": {
+                    "type": "string"
+                },
+                "couponPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "freightPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "goodsPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "grouponPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "handleOption": {
+                    "$ref": "#/definitions/response.OrderHandleOption"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "integralPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "orderPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "orderSn": {
+                    "type": "string"
+                },
+                "orderStatus": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "orderStatusText": {
+                    "type": "string"
+                },
+                "payId": {
+                    "type": "string"
+                },
+                "payTime": {
+                    "type": "string"
+                },
+                "refundAmount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "refundContent": {
+                    "type": "string"
+                },
+                "refundTime": {
+                    "type": "string"
+                },
+                "refundType": {
+                    "type": "string"
+                },
+                "shipChannel": {
+                    "type": "string"
+                },
+                "shipSn": {
+                    "type": "string"
+                },
+                "shipTime": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.OrderListRtnJSON": {
+            "title": "OrderListRtnJSON",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.OrderRtnJSON"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.OrderRtnJSON": {
+            "title": "OrderRtnJSON",
+            "type": "object",
+            "properties": {
+                "actualPrice": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "aftersaleStatus": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goodsList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.OrderGoods"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "orderSn": {
+                    "type": "string"
+                },
+                "orderStatusText": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.OrderSubmitRtnJSON": {
+            "title": "OrderSubmitRtnJSON",
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.SearchIndexRtnJSON": {
+            "title": "SearchIndexRtnJSON",
+            "type": "object",
+            "properties": {
+                "defaultKeyword": {
+                    "$ref": "#/definitions/base.ShopKeyword"
+                },
+                "historyKeywordList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ShopSearchHistory"
+                    }
+                },
+                "hotKeywordList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ShopKeyword"
+                    }
+                }
+            }
+        },
+        "response.SearchResultRtnJSON": {
+            "title": "SearchResultRtnJSON",
+            "type": "object",
+            "properties": {
+                "filterCategoryList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.CategoryRtnJSON"
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsRtnJSON"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.SpecificationItem": {
+            "title": "SpecificationItem",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "valueList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.GoodsSpecificationRtnJSON"
+                    }
+                }
+            }
+        },
+        "response.TopicDetailJSON": {
+            "title": "TopicDetailJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "goods": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "readCount": {
+                    "type": "string"
+                },
+                "sortOrder": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.TopicDetailRtnJSON": {
+            "title": "TopicDetailRtnJSON",
+            "type": "object",
+            "properties": {
+                "topic": {
+                    "$ref": "#/definitions/response.TopicDetailJSON"
+                }
+            }
+        },
+        "response.TopicJSON": {
+            "title": "TopicJSON",
+            "type": "object",
+            "properties": {
+                "addTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "picUrl": {
+                    "type": "string"
+                },
+                "sortOrder": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.TopicRelatedRtnJSON": {
+            "title": "TopicRelatedRtnJSON",
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ShopTopic"
+                    }
+                }
+            }
+        },
+        "response.TopicRtnJSON": {
+            "title": "TopicRtnJSON",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response.TopicJSON"
+                    }
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "response.Traces": {
+            "title": "Traces",
+            "type": "object",
+            "properties": {
+                "acceptStation": {
+                    "type": "string"
+                },
+                "acceptTime": {
+                    "type": "string"
+                },
+                "remark": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.UnifiedOrderRtnJSON": {
+            "title": "UnifiedOrderRtnJSON",
+            "type": "object",
+            "properties": {
+                "nonceStr": {
+                    "type": "string"
+                },
+                "packageValue": {
+                    "type": "string"
+                },
+                "paySign": {
+                    "type": "string"
+                },
+                "signType": {
+                    "type": "string"
+                },
+                "timeStamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.UploadRtnJSON": {
+            "title": "UploadRtnJSON",
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.UserIndexRtnJSON": {
+            "title": "UserIndexRtnJSON",
+            "type": "object",
+            "properties": {
+                "unaftersale": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "uncomment": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "unpaid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "unrecv": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "unship": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "shop/controllersAuthController",
+            "description": "AuthController ...\n"
+        },
+        {
+            "name": "shop/controllersHomeController",
+            "description": "HomeController ...\n"
+        },
+        {
+            "name": "shop/controllersCatalogController",
+            "description": "CatalogController ...\n"
+        },
+        {
+            "name": "shop/controllersGoodsController",
+            "description": "GoodsController ...\n"
+        },
+        {
+            "name": "shop/controllersCartController",
+            "description": "CartController ...\n"
+        },
+        {
+            "name": "shop/controllersCollectController",
+            "description": "CollectController ...\n"
+        },
+        {
+            "name": "shop/controllersCommentController",
+            "description": "CommentController ...\n"
+        },
+        {
+            "name": "shop/controllersTopicController",
+            "description": "TopicController ...\n"
+        },
+        {
+            "name": "shop/controllersSearchController",
+            "description": "SearchController ...\n"
+        },
+        {
+            "name": "shop/controllersAddressController",
+            "description": "AddressController ...\n"
+        },
+        {
+            "name": "shop/controllersRegionController",
+            "description": "RegionController ...\n"
+        },
+        {
+            "name": "shop/controllersOrderController",
+            "description": "OrderController ...\n"
+        },
+        {
+            "name": "shop/controllersFootprintController",
+            "description": "FootprintController ...\n"
+        },
+        {
+            "name": "shop/controllersFeedbackController",
+            "description": "FeedbackController ...\n"
+        },
+        {
+            "name": "shop/controllersStorageController",
+            "description": "StorageController ...\n"
+        },
+        {
+            "name": "shop/controllersCouponUserController",
+            "description": "CouponUserController ...\n"
+        },
+        {
+            "name": "shop/controllersUserController",
+            "description": "UserController ...\n"
+        },
+        {
+            "name": "shop/controllersIssueController",
+            "description": "IssueController ...\n"
+        },
+        {
+            "name": "shop/controllersAfterSaleController",
+            "description": "AfterSaleController ...\n"
+        },
+        {
+            "name": "shop/controllersBaseController",
+            "description": "BaseController 基础controller不带个人信息验证\n"
+        }
+    ]
+}
