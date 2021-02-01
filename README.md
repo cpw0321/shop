@@ -23,6 +23,13 @@
     地址、收藏、足迹、意见反馈
     客服
 
+#### 实现效果
+    
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/首页.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/分类.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/购物车.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/个人中心.jpg)
+
 #### 使用说明
 
 先导入数据库，sql文件下的sql语句
