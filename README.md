@@ -25,10 +25,10 @@
 
 #### 实现效果
     
-    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/首页.jpg)
-    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/分类.jpg)
-    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/购物车.jpg)
-    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/个人中心.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/%E9%A6%96%E9%A1%B5.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/%E5%88%86%E7%B1%BB.jpg)
+    ![https://github.com/cpw0321/shop/blob/main/static/weixin/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg)
+    ![image](https://github.com/cpw0321/shop/blob/main/static/weixin/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg)
 
 #### 使用说明
 
