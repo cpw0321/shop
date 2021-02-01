@@ -45,3 +45,5 @@
 bee run -gendoc=true -downdoc=true
 
 http://localhost:8082/swagger/#!
+
+swagger效果图见：shop/static/img/swagger.jpg
